@@ -118,7 +118,7 @@ export default function AboutContent() {
 
       {/* Closing Quote */}
       <section className="py-20 md:py-32 bg-[#111111] relative overflow-hidden flex items-center justify-center text-center">
-        <div className="absolute inset-0 bg-[url('/photos/fireworks-array.jfif')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('/photos/fireworks-array.jpg')] bg-cover bg-center opacity-10" />
         <div className="relative z-10 px-4 max-w-4xl mx-auto">
           <motion.p
             initial={{ opacity: 0, scale: 0.95 }}

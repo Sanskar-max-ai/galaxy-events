@@ -62,91 +62,39 @@ export default function HomeContent() {
     <>
       <HeroSection />
 
-      {/* Intro Section - World Class Spacing */}
-      <section className="py-12 md:py-36 px-4 md:px-6 bg-[#0a0a0a] relative overflow-hidden">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <h2 className="text-gold-gradient text-[10px] tracking-[0.5em] uppercase mb-6 font-black">Our Heritage</h2>
-              <h3 className="text-5xl md:text-7xl font-heading font-bold text-white mb-10 leading-[1.1]">
-                Crafting Timeless <br /> <span className="italic font-light">Elegance</span>
-              </h3>
-              <p className="text-gray-400 text-xl leading-relaxed mb-8 font-light max-w-xl">
-                At Galaxy Events, we don't just organize; we design cinematic experiences. With over a decade of expertise, our team brings your vision to life with immaculate style and perfect timing.
-              </p>
-              <Link href="/about" className="group flex items-center gap-4 text-[#c9a84c] tracking-[0.3em] uppercase text-xs font-bold transition-all hover:text-white">
-                <span>The Story</span>
-                <div className="h-[1px] w-12 bg-[#c9a84c] group-hover:w-20 transition-all duration-500" />
-              </Link>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative aspect-[4/5] lg:h-[700px] rounded-sm overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 z-10" />
-              <Image
-                src="/photos/wedding-3.jfif"
-                alt="Elegant Indian Wedding Setup"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Snapshot */}
-      <section className="py-16 md:py-24 bg-[#111111] overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+      {/* Services Snapshot - Center aligned Mobile Headers */}
+      <section className="py-20 md:py-32 bg-[#111111] overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 mb-12 flex flex-col items-center md:items-end md:flex-row justify-between gap-8 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-gold-gradient text-sm tracking-[0.3em] uppercase mb-4 font-bold">Our Expertise</h2>
-            <h3 className="text-4xl md:text-6xl font-heading font-semibold text-white">Signature Services</h3>
+            <h2 className="text-gold-gradient text-sm tracking-[0.4em] uppercase mb-4 font-bold">Our Expertise</h2>
+            <h3 className="text-4xl md:text-7xl font-heading font-semibold text-white">Signature Services</h3>
           </motion.div>
           
-          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
-            <div className="hidden md:flex items-center gap-2 mr-4">
+          <div className="flex flex-col md:flex-row items-center gap-6 w-full md:w-auto">
+            <div className="hidden md:flex items-center gap-3">
               <button 
-                onClick={() => scroll(-400)}
-                className="p-3 border border-white/10 text-white hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all rounded-full"
+                onClick={() => scroll(-450)}
+                className="p-4 border border-white/10 text-white hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all rounded-full bg-white/5"
                 aria-label="Scroll Left"
               >
-                <FaArrowLeft size={14} />
+                <FaArrowLeft size={16} />
               </button>
               <button 
-                onClick={() => scroll(400)}
-                className="p-3 border border-white/10 text-white hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all rounded-full"
+                onClick={() => scroll(450)}
+                className="p-4 border border-white/10 text-white hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all rounded-full bg-white/5"
                 aria-label="Scroll Right"
               >
-                <FaArrowRight size={14} />
+                <FaArrowRight size={16} />
               </button>
             </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Link href="/services" className="inline-flex items-center justify-center border border-white/20 px-6 min-h-[48px] w-full md:w-auto text-sm tracking-widest text-white uppercase hover:bg-white hover:text-black transition-colors">
-                View All
-              </Link>
-            </motion.div>
+            <Link href="/services" className="inline-flex items-center justify-center border border-[#c9a84c]/30 px-8 min-h-[52px] w-full md:w-auto text-xs tracking-[0.3em] text-white uppercase hover:bg-[#c9a84c] hover:text-black transition-all duration-500 font-bold">
+              Explore Collection
+            </Link>
           </div>
         </div>
 
@@ -199,27 +147,27 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* Portfolio Creative Bento Grid */}
-      <section className="py-24 md:py-32 bg-[#0a0a0a] overflow-hidden">
+      {/* Portfolio Creative Bento Grid - Centered Mobile Alignment */}
+      <section className="py-24 md:py-40 bg-[#0a0a0a] overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="flex flex-col items-center md:items-end md:flex-row justify-between gap-12 mb-20 text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-gold-gradient text-[10px] tracking-[0.6em] uppercase mb-6 font-black">Our Creations</h2>
-              <h3 className="text-5xl md:text-8xl font-heading font-bold text-white leading-none">
+              <h2 className="text-gold-gradient text-xs tracking-[0.6em] uppercase mb-6 font-black">Our Creations</h2>
+              <h3 className="text-5xl md:text-8xl font-heading font-bold text-white leading-[1.1]">
                 Featured <br /> <span className="text-gold-gradient italic">Showcase</span>
               </h3>
             </motion.div>
-            <Link href="/gallery" className="group flex items-center gap-4 text-white/60 tracking-[0.3em] uppercase text-xs font-bold transition-all hover:text-[#c9a84c]">
-              <span>Full Portfolio</span>
-              <div className="h-[1px] w-12 bg-white/20 group-hover:bg-[#c9a84c] group-hover:w-20 transition-all duration-500" />
+            <Link href="/gallery" className="group flex items-center gap-6 text-[#c9a84c] tracking-[0.4em] uppercase text-xs font-black transition-all hover:text-white">
+              <span className="shrink-0">Full Portfolio</span>
+              <div className="h-[1px] w-12 bg-[#c9a84c] group-hover:w-24 transition-all duration-700" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[1200px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 h-auto md:h-[1300px]">
             {/* Main Feature */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
