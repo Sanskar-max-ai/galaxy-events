@@ -43,33 +43,7 @@ export default function HeroSection() {
         >
           Where Every Moment <br /> Becomes a <span className="text-gold-gradient italic">Memory</span>
         </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="w-full md:w-auto"
-        >
-          <Link
-            href="/services"
-            className="shimmer-bg relative flex items-center justify-center px-10 py-4 min-h-[48px] font-bold text-[#111111] bg-[#c9a84c] rounded-sm transition-all duration-500 hover:bg-[#dac175] hover:-translate-y-1 shadow-[0_10px_30px_rgba(201,168,76,0.3)] group w-full md:w-auto"
-          >
-            <span className="mr-3 tracking-[0.2em] uppercase text-xs md:text-sm">Explore Our Work</span>
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.5em] text-white/40">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[#c9a84c] to-transparent" />
-      </motion.div>
     </section>
   );
 }

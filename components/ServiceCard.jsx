@@ -5,21 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaReact } from "react-icons/fa"; // fallback icon
 
-export default function ServiceCard({ title, description, image, icon: Icon = FaReact, delay = 0, href = "/services" }) {
+export default function ServiceCard({ title, description, image, icon: Icon = FaReact, delay = 0, href = "/services", onClick }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay }}
-      whileHover={{ 
-        y: -10,
-        rotateX: 2,
-        rotateY: -2,
-      }}
-      className="group perspective-1000"
     >
-      <Link href={href} className="block h-full block">
+      <div 
+        onClick={onClick}
+        className="cursor-pointer h-full group perspective-1000"
+      >
         <div className="bg-[#1a1a1a] border border-white/5 p-8 h-full transition-all duration-500 hover:border-[#c9a84c]/50 hover:bg-[#1f1f1f] relative overflow-hidden flex flex-col items-start glass-panel">
           
           {/* Ethereal gold glow effect */}
@@ -27,7 +24,7 @@ export default function ServiceCard({ title, description, image, icon: Icon = Fa
           
           {/* Visual Image */}
           {image && (
-            <div className="relative w-full h-40 md:h-56 mb-6 overflow-hidden border border-white/5 shrink-0 group-hover:border-[#c9a84c]/40 transition-all duration-500 rounded-sm">
+            <div className="relative w-full h-48 md:h-56 mb-6 overflow-hidden border border-white/5 shrink-0 group-hover:border-[#c9a84c]/40 transition-all duration-500 rounded-sm">
               <Image 
                 src={image} 
                 alt={title}
@@ -49,16 +46,16 @@ export default function ServiceCard({ title, description, image, icon: Icon = Fa
             </h3>
           </div>
           
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 flex-grow z-10 font-light">
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 flex-grow z-10 font-light line-clamp-3 md:line-clamp-none">
             {description}
           </p>
 
           <div className="mt-auto flex items-center text-[10px] tracking-[0.3em] text-[#c9a84c] uppercase font-bold">
-            <span className="mr-3">Discover </span>
+            <span className="mr-3">Discover Details</span>
             <span className="w-10 h-[1px] bg-[#c9a84c] group-hover:w-16 transition-all duration-500" />
           </div>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 }
