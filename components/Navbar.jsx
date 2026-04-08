@@ -17,6 +17,8 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
@@ -25,16 +27,24 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
+      const currentScrollY = window.scrollY;
+      
+      // Scrolled state for background change
+      setScrolled(currentScrollY > 20);
+
+      // Hide/Show logic
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setVisible(false); // Scrolling down - hide
       } else {
-        setScrolled(false);
+        setVisible(true); // Scrolling up - show
       }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -51,108 +61,90 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        scrolled || !isHome || mobileMenuOpen
-          ? "glass-panel py-3"
-          : "bg-transparent py-5"
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out w-[95%] max-w-7xl rounded-full px-6 py-2 flex items-center justify-between",
+        scrolled
+          ? "glass-panel shadow-2xl translate-y-0"
+          : "bg-[#111111]/40 backdrop-blur-sm border border-white/5 translate-y-0",
+        !visible && !mobileMenuOpen && "-translate-y-32"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        
-        {/* Logo */}
-        <Link href="/" className="z-50 relative group">
-          <h1 className="text-2xl md:text-3xl font-heading font-semibold text-[#c9a84c] tracking-wider uppercase group-hover:scale-105 transition-transform duration-500">
-            Galaxy Events
-          </h1>
-        </Link>
+      {/* Logo */}
+      <Link href="/" className="z-50 relative group">
+        <h1 className="text-xl md:text-2xl font-heading font-bold text-gold-gradient tracking-tighter group-hover:scale-105 transition-transform duration-500">
+          GALAXY EVENTS
+        </h1>
+      </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "text-xs font-semibold tracking-[0.2em] uppercase transition-all relative group py-2",
-                pathname === link.href ? "text-[#c9a84c]" : "text-gray-400 hover:text-white"
-              )}
-            >
-              {link.name}
-              <span 
-                className={cn(
-                  "absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#c9a84c] transition-all duration-500 ease-out group-hover:w-full",
-                  pathname === link.href && "w-full shadow-[0_0_10px_#c9a84c]"
-                )}
-              />
-            </Link>
-          ))}
+      {/* Desktop Nav */}
+      <nav className="hidden md:flex items-center space-x-8">
+        {navLinks.map((link) => (
           <Link
-            href="/contact"
-            className="shimmer-bg bg-[#c9a84c] hover:bg-[#dac175] text-[#111111] font-bold py-2.5 px-8 rounded-sm uppercase tracking-[0.15em] text-xs transition-all duration-300 transform hover:-translate-y-1 shadow-[0_4px_20px_0_rgba(201,168,76,0.3)]"
+            key={link.name}
+            href={link.href}
+            className={cn(
+              "text-[10px] font-bold tracking-[0.3em] uppercase transition-all relative group py-2",
+              pathname === link.href ? "text-[#c9a84c]" : "text-gray-400 hover:text-white"
+            )}
           >
-            Book Now
+            {link.name}
+            <span 
+              className={cn(
+                "absolute bottom-0 left-0 w-0 h-[1px] bg-[#c9a84c] transition-all duration-500 ease-out group-hover:w-full",
+                pathname === link.href && "w-full shadow-[0_0_15px_#c9a84c]"
+              )}
+            />
           </Link>
-        </nav>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden z-50 text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        ))}
+        <Link
+          href="/contact"
+          className="bg-[#c9a84c]/90 hover:bg-[#c9a84c] text-[#111111] font-bold py-2 px-6 rounded-full uppercase tracking-[0.2em] text-[10px] transition-all duration-300 transform hover:scale-105 shadow-xl"
         >
-          {mobileMenuOpen ? <LuX size={28} /> : <LuMenu size={28} />}
-        </button>
+          Book
+        </Link>
+      </nav>
 
-      </div>
+      {/* Mobile Toggle */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden z-50 text-white p-2"
+        aria-label="Toggle Menu"
+      >
+        <div className="w-6 h-5 flex flex-col justify-between">
+          <span className={cn("w-full h-0.5 bg-white transition-all transform duration-300", mobileMenuOpen && "translate-y-2.5 rotate-45")} />
+          <span className={cn("w-full h-0.5 bg-white transition-all duration-300", mobileMenuOpen && "opacity-0")} />
+          <span className={cn("w-full h-0.5 bg-white transition-all transform duration-300", mobileMenuOpen && "-translate-y-2 -rotate-45")} />
+        </div>
+      </button>
 
       {/* Mobile Nav Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="md:hidden fixed inset-0 w-full h-screen z-40 flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="md:hidden fixed inset-0 w-full h-screen z-40 flex flex-col items-center justify-center glass-panel rounded-none border-none"
           >
-            {/* Luxury Background for Menu */}
-            <div className="absolute inset-0 bg-[#0a0a0a] z-0" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/5 via-transparent to-[#c9a84c]/5 z-0" />
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 z-0" />
-
-            <div className="relative z-10 flex flex-col items-center space-y-8">
+            <div className="flex flex-col items-center space-y-10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.1 }}
+                  transition={{ delay: i * 0.1 }}
                 >
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "text-3xl font-heading font-medium tracking-widest uppercase transition-colors",
-                      pathname === link.href ? "text-[#c9a84c]" : "text-gray-300 hover:text-white"
+                      "text-4xl font-heading font-bold tracking-widest uppercase transition-colors",
+                      pathname === link.href ? "text-gold-gradient" : "text-gray-500"
                     )}
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + navLinks.length * 0.1 }}
-                className="pt-4"
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="bg-[#c9a84c] text-[#111111] font-semibold py-4 px-10 rounded-sm uppercase tracking-widest text-lg shadow-xl"
-                >
-                  Book Now
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}

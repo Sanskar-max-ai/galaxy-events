@@ -20,20 +20,15 @@ export const metadata = {
   description: "Where Every Moment Becomes a Memory. High-end event management in Hoshangabad, Madhya Pradesh.",
 };
 
-import CustomCursor from "@/components/CustomCursor";
-import StarfieldBackground from "@/components/StarfieldBackground";
-
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col pt-0 selection:bg-[#c9a84c] selection:text-[#111111]">
-        <StarfieldBackground />
-        <CustomCursor />
+      <body className="min-h-full flex flex-col pt-0 selection:bg-[#c9a84c] selection:text-[#111111] bg-[#0a0a0a]">
         <Navbar />
-        <main className="flex-1 relative z-10">{children}</main>
+        <main className="flex-1 relative">{children}</main>
         <Footer />
       </body>
     </html>
