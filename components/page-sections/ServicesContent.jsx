@@ -78,7 +78,7 @@ export default function ServicesContent() {
       <section className="py-16 bg-[#111111] border-y border-white/5">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-2xl md:text-3xl font-heading text-white mb-6">Need a custom package for your event?</h2>
-          <a href="/contact" className="inline-block border border-[#c9a84c] text-[#c9a84c] px-8 py-3 uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-all duration-300">
+          <a href="/contact" className="inline-flex items-center justify-center min-h-[48px] w-full md:w-auto border border-[#c9a84c] text-[#c9a84c] px-8 py-3 uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-all duration-300">
             Talk to our Planners
           </a>
         </div>

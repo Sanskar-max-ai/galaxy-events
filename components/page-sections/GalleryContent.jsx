@@ -85,7 +85,7 @@ export default function GalleryContent() {
               key={cat}
               onClick={() => setActiveTab(cat)}
               className={cn(
-                "px-4 py-2 text-sm uppercase tracking-widest font-medium transition-all duration-300 border",
+                "px-4 text-sm uppercase tracking-widest font-medium transition-all duration-300 border flex items-center justify-center min-h-[48px]",
                 activeTab === cat 
                   ? "border-[#c9a84c] bg-[#c9a84c] text-[#111111]" 
                   : "border-white/10 text-gray-400 hover:border-[#c9a84c]/50 hover:text-white"

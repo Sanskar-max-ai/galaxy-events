@@ -159,7 +159,7 @@ export default function ContactContent() {
                 </p>
                 <button 
                   onClick={() => setSubmitStatus("idle")}
-                  className="mt-8 border border-[#c9a84c] text-[#c9a84c] px-6 py-2 uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-colors"
+                  className="mt-8 border border-[#c9a84c] text-[#c9a84c] px-6 min-h-[48px] w-full md:w-auto uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-colors"
                 >
                   Send Another Message
                 </button>
@@ -274,7 +274,7 @@ export default function ContactContent() {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full bg-[#c9a84c] hover:bg-[#dac175] text-[#111111] disabled:bg-gray-600 disabled:cursor-not-allowed font-semibold uppercase tracking-widest py-4 rounded-sm transition-colors text-sm"
+                  className="w-full bg-[#c9a84c] hover:bg-[#dac175] text-[#111111] disabled:bg-gray-600 disabled:cursor-not-allowed font-semibold uppercase tracking-widest min-h-[48px] py-4 rounded-sm transition-colors text-sm"
                 >
                   {isSubmitting ? "Sending Request..." : "Submit Booking Inquiry"}
                 </button>

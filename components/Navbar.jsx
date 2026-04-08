@@ -61,10 +61,13 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out w-[95%] max-w-7xl rounded-full px-6 py-2 flex items-center justify-between",
+        "fixed z-50 transition-all duration-500 ease-in-out flex items-center justify-between",
+        "w-full top-0 h-[56px] px-4 rounded-none border-b border-white/5",
+        "md:top-4 md:w-[95%] md:max-w-7xl md:rounded-full md:px-6 md:py-2 md:h-auto md:border-none",
+        "left-1/2 -translate-x-1/2",
         scrolled
           ? "glass-panel shadow-2xl translate-y-0"
-          : "bg-[#111111]/40 backdrop-blur-sm border border-white/5 translate-y-0",
+          : "bg-[#111111]/90 md:bg-[#111111]/40 backdrop-blur-md md:backdrop-blur-sm border border-white/5 md:border-white/5 translate-y-0",
         !visible && !mobileMenuOpen && "-translate-y-32"
       )}
     >
@@ -104,17 +107,15 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Toggle */}
-      <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="md:hidden z-50 text-white p-2"
-        aria-label="Toggle Menu"
-      >
-        <div className="w-6 h-5 flex flex-col justify-between">
-          <span className={cn("w-full h-0.5 bg-white transition-all transform duration-300", mobileMenuOpen && "translate-y-2.5 rotate-45")} />
-          <span className={cn("w-full h-0.5 bg-white transition-all duration-300", mobileMenuOpen && "opacity-0")} />
-          <span className={cn("w-full h-0.5 bg-white transition-all transform duration-300", mobileMenuOpen && "-translate-y-2 -rotate-45")} />
-        </div>
-      </button>
+      {!mobileMenuOpen && (
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          className="md:hidden z-50 text-white min-w-[44px] min-h-[44px] flex items-center justify-center p-2"
+          aria-label="Toggle Menu"
+        >
+          <LuMenu size={28} />
+        </button>
+      )}
 
       {/* Mobile Nav Drawer */}
       <AnimatePresence>
@@ -123,9 +124,16 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 w-full h-screen z-40 flex flex-col items-center justify-center glass-panel rounded-none border-none"
+            className="md:hidden fixed top-0 left-0 w-full h-[100vh] z-[9999] flex flex-col items-center justify-center bg-[#111111] opacity-100"
           >
-            <div className="flex flex-col items-center space-y-10">
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-2 right-4 text-white min-w-[44px] min-h-[44px] flex items-center justify-center p-2"
+              aria-label="Close Menu"
+            >
+              <LuX size={32} />
+            </button>
+            <div className="flex flex-col items-center space-y-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -137,8 +145,8 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "text-4xl font-heading font-bold tracking-widest uppercase transition-colors",
-                      pathname === link.href ? "text-gold-gradient" : "text-gray-500"
+                      "flex items-center justify-center min-h-[48px] px-6 text-3xl font-heading font-bold tracking-widest uppercase transition-colors",
+                      pathname === link.href ? "text-gold-gradient" : "text-gray-200"
                     )}
                   >
                     {link.name}

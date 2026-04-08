@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={link}>
                   <Link 
                     href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
-                    className="text-gray-400 hover:text-[#c9a84c] text-sm transition-colors flex items-center"
+                    className="text-gray-400 hover:text-[#c9a84c] text-sm transition-colors flex items-center min-h-[44px]"
                   >
                     <span className="w-2 h-[1px] bg-[#c9a84c] mr-3 opacity-0 transition-opacity" />
                     {link}
@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {["Premium Weddings", "SFX & Pyrotechnics", "Venue Decor", "Birthday Celebrations", "Haldi & Mehndi"].map((service) => (
                 <li key={service}>
-                  <Link href="/services" className="text-gray-400 hover:text-[#c9a84c] text-sm transition-colors">
+                  <Link href="/services" className="text-gray-400 hover:text-[#c9a84c] text-sm transition-colors flex items-center min-h-[44px]">
                     {service}
                   </Link>
                 </li>
@@ -69,11 +69,11 @@ export default function Footer() {
                 <span className="text-[#c9a84c] font-bold mr-2 mt-0.5">A.</span>
                 Hoshangabad (Narmadapuram)<br />Madhya Pradesh, India
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center min-h-[44px]">
                 <span className="text-[#c9a84c] font-bold mr-2">P.</span>
                 <a href="tel:+910000000000" className="hover:text-white transition-colors">+91 00000 00000</a>
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center min-h-[44px]">
                 <span className="text-[#c9a84c] font-bold mr-2">E.</span>
                 <a href="mailto:info@galaxyevents.com" className="hover:text-white transition-colors">info@galaxyevents.com</a>
               </li>
@@ -82,7 +82,7 @@ export default function Footer() {
                   href="https://wa.me/910000000000" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="inline-flex items-center mt-2 text-[#c9a84c] font-medium hover:text-[#dac175] transition-colors"
+                  className="inline-flex items-center min-h-[44px] text-[#c9a84c] font-medium hover:text-[#dac175] transition-colors"
                 >
                   <FaWhatsapp className="mr-2" size={18} /> Chat on WhatsApp
                 </a>

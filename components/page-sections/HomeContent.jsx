@@ -41,7 +41,7 @@ export default function HomeContent() {
       <HeroSection />
 
       {/* Intro Section - World Class Spacing */}
-      <section className="py-24 md:py-36 px-4 md:px-6 bg-[#0a0a0a] relative overflow-hidden">
+      <section className="py-12 md:py-36 px-4 md:px-6 bg-[#0a0a0a] relative overflow-hidden">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -98,7 +98,7 @@ export default function HomeContent() {
             <h3 className="text-4xl md:text-6xl font-heading font-semibold text-white">Signature Services</h3>
           </motion.div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
             <div className="hidden md:flex items-center gap-2 mr-4">
               <button 
                 onClick={() => scroll(-400)}
@@ -121,21 +121,21 @@ export default function HomeContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Link href="/services" className="inline-block border border-white/20 px-6 py-3 text-sm tracking-widest text-white uppercase hover:bg-white hover:text-black transition-colors">
+              <Link href="/services" className="inline-flex items-center justify-center border border-white/20 px-6 min-h-[48px] w-full md:w-auto text-sm tracking-widest text-white uppercase hover:bg-white hover:text-black transition-colors">
                 View All
               </Link>
             </motion.div>
           </div>
         </div>
 
-        {/* Horizontal Scroll wrapper */}
+        {/* Auto Scroll wrapper Desktop / Vertical layout Mobile */}
         <div 
           ref={scrollRef}
-          className="w-full overflow-x-auto pb-8 hide-scrollbar cursor-grab active:cursor-grabbing px-4 md:px-8 snap-x snap-mandatory"
+          className="w-full overflow-x-hidden md:overflow-x-auto pb-8 hide-scrollbar cursor-grab active:cursor-grabbing px-4 md:px-8 md:snap-x md:snap-mandatory"
         >
-          <div className="flex space-x-6 w-max mx-auto md:mx-0">
+          <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-6 w-full md:w-max mx-auto md:mx-0">
              {showcaseServices.map((service, idx) => (
-                <div key={idx} className="w-[300px] md:w-[400px] shrink-0 snap-center">
+                <div key={idx} className="w-full md:w-[400px] shrink-0 md:snap-center">
                   <ServiceCard 
                     title={service.title} 
                     description={service.desc} 
@@ -186,8 +186,8 @@ export default function HomeContent() {
             ))}
           </div>
 
-          <div className="text-center">
-            <Link href="/gallery" className="inline-block border border-[#c9a84c] text-[#c9a84c] px-8 py-4 font-semibold uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-colors">
+          <div className="text-center w-full">
+            <Link href="/gallery" className="inline-flex items-center justify-center border border-[#c9a84c] text-[#c9a84c] px-8 min-h-[48px] w-full md:w-auto font-semibold uppercase tracking-widest text-sm hover:bg-[#c9a84c] hover:text-[#111111] transition-colors">
               Explore Full Gallery
             </Link>
           </div>
@@ -226,8 +226,9 @@ export default function HomeContent() {
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.3 }}
+             className="w-full"
           >
-            <Link href="/contact" className="inline-block bg-[#111111] text-white px-10 py-4 font-semibold uppercase tracking-widest hover:bg-[#1f1f1f] shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+            <Link href="/contact" className="inline-flex items-center justify-center bg-[#111111] text-white px-10 min-h-[48px] w-full md:w-auto font-semibold uppercase tracking-widest hover:bg-[#1f1f1f] shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
               Contact Us Now
             </Link>
           </motion.div>
