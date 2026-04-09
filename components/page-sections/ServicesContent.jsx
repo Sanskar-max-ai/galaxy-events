@@ -13,15 +13,15 @@ import ServiceCard from "@/components/ServiceCard";
 const allServices = [
   { title: "Premium Weddings", icon: FaGem, desc: "End-to-end luxury wedding planning, execution, and management, ensuring a flawless cinematic experience.", image: "/photos/wedding-stage.jpg" },
   { title: "Ring Ceremonies", icon: FaRing, desc: "Elegant engagement setups from stage designs to beautiful ring presentation trays.", image: "/photos/ring-ceremonies.jpg" },
-  { title: "New Child Welcome", icon: FaChild, desc: "Naamkaran and welcome events stylized with delicate and warm decor perfect for the family.", image: "/photos/new-child-welcome.jpg" },
+  { title: "New Child Welcome", icon: FaChild, desc: "Naamkaran and welcome events stylized with delicate and warm decor perfect for the family.", image: "/photos/new-child-welcome.png" },
   { title: "Birthday Celebrations", icon: FaGlassCheers, desc: "Thematic parties for all ages, featuring custom photo booths and entertainment styling.", image: "/photos/birthday-celebrations.webp" },
   { title: "Wedding Decor & Haldi", icon: FaLeaf, desc: "Traditional yet modern Haldi, Mehndi, and floral setups bringing vibrant energy.", image: "/photos/haldi-mehndi-decor.jpg" },
-  { title: "Tent & Venue Setup", icon: FaCampground, desc: "Luxurious tentage, draping, and structural venue styling with premium elements.", image: "/photos/wedding-1.jpg" },
-  { title: "Stage SFX & Pyro", icon: FaFire, desc: "Safe, spectacular cold pyrotechnics and special effects for stage performances.", image: "/photos/stage-sfx-wedding.jpg" },
-  { title: "Fireworks Array", icon: FaFire, desc: "Breathtaking outdoor firework displays for the grandest wedding entries and farewells.", image: "/photos/fireworks-array.jpg" },
+  { title: "Tent & Venue Setup", icon: FaCampground, desc: "Luxurious tentage, draping, and structural venue styling with premium elements.", image: "/photos/wedding-1.png" },
+  { title: "Stage SFX & Pyro", icon: FaFire, desc: "Safe, spectacular cold pyrotechnics and special effects for stage performances.", image: "/photos/entries-sfx-1.png" },
+  { title: "Fireworks Array", icon: FaFire, desc: "Breathtaking outdoor firework displays for the grandest wedding entries and farewells.", image: "/photos/sfx-fireworks.png" },
   { title: "Sangeet Management", icon: FaMusic, desc: "High-energy choreography coordination, stage lighting, and top-tier sound setups.", image: "/photos/sangeet-management.png" },
   { title: "Bride & Groom Entry", icon: FaStar, desc: "Grand cinematic entries with cold pyro, flowers, and matching background scores.", image: "/photos/bride-groom-entry.jpg" },
-  { title: "Golden Mirror Floor", icon: FaStar, desc: "The ultimate premium bride entry experience featuring a golden mirror aisle and mist effects.", image: "/photos/golden-mirror-floor.jpg" },
+  { title: "Golden Mirror Floor", icon: FaStar, desc: "The ultimate premium bride entry experience featuring a golden mirror aisle and mist effects.", image: "/photos/Golden-mirror-floor.png" },
 ];
 
 export default function ServicesContent() {
