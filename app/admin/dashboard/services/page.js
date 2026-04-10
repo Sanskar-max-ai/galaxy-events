@@ -15,27 +15,27 @@ export default async function AdminServicesPage() {
           </div>
           <div>
             <h1 className="text-4xl font-heading font-bold text-white">Service Management</h1>
-            <p className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-black mt-1">Configure Signature Offerings</p>
+            <p className="text-white/40 text-[12px] tracking-[0.4em] uppercase font-black mt-1">Configure Signature Offerings</p>
           </div>
         </div>
 
         <div className="bg-[#111111] p-8 border border-white/5 w-full md:w-auto">
-          <h2 className="text-[10px] tracking-[0.3em] font-black text-[#c9a84c] uppercase mb-6 flex items-center gap-2">
+          <h2 className="text-[12px] tracking-[0.3em] font-black text-[#c9a84c] uppercase mb-6 flex items-center gap-2">
             <Plus size={14} /> Create New Service
           </h2>
           <form action={addService} className="flex flex-col gap-4">
             <div className="flex gap-4">
-              <input name="title" placeholder="Service Title" className="bg-black border border-white/10 p-3 text-[10px] tracking-widest uppercase text-white outline-none flex-grow" required />
-              <select name="icon_name" className="bg-black border border-white/10 p-3 text-[10px] tracking-widest uppercase text-white outline-none w-32">
+              <input name="title" placeholder="Service Title" className="bg-black border border-white/10 p-3 text-[12px] tracking-widest uppercase text-white outline-none flex-grow" required />
+              <select name="icon_name" className="bg-black border border-white/10 p-3 text-[12px] tracking-widest uppercase text-white outline-none w-32">
                 {iconOptions.map(icon => <option key={icon} value={icon}>{icon}</option>)}
               </select>
             </div>
             <textarea name="description" placeholder="Short description for the card" className="bg-black border border-white/10 p-3 text-xs text-white outline-none h-20" required />
             <div className="flex items-center gap-4">
-               <label className="text-[10px] text-white/40 uppercase tracking-widest">Service Image</label>
-               <input type="file" name="imageFile" className="text-[10px] text-white/40 file:bg-white/5 file:border-none file:text-white file:px-4 file:py-2 file:cursor-pointer" required />
+               <label className="text-[12px] text-white/40 uppercase tracking-widest">Service Image</label>
+               <input type="file" name="imageFile" className="text-[12px] text-white/40 file:bg-white/5 file:border-none file:text-white file:px-4 file:py-2 file:cursor-pointer" required />
             </div>
-            <button type="submit" className="bg-[#c9a84c] text-[#111111] px-8 py-3 font-bold uppercase tracking-widest text-[10px] mt-2">Publish Service</button>
+            <button type="submit" className="bg-[#c9a84c] text-[#111111] px-8 py-3 font-bold uppercase tracking-widest text-[12px] mt-2">Publish Service</button>
           </form>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default async function AdminServicesPage() {
                     <input type="file" name="imageFile" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                     <div className="bg-white/5 border border-white/5 p-3 flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
                       <Upload size={12} className="text-[#c9a84c]" />
-                      <span className="text-[9px] tracking-widest text-white/60 uppercase">Change Photo</span>
+                      <span className="text-[10px] tracking-widest text-white/60 uppercase">Change Photo</span>
                     </div>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export default async function AdminServicesPage() {
                       <select 
                         name="icon_name" 
                         defaultValue={service.icon_name}
-                        className="bg-black border border-white/10 p-3 text-[10px] tracking-widest uppercase text-[#c9a84c] outline-none"
+                        className="bg-black border border-white/10 p-3 text-[12px] tracking-widest uppercase text-[#c9a84c] outline-none"
                       >
                         {iconOptions.map(icon => <option key={icon} value={icon}>{icon}</option>)}
                       </select>
@@ -97,7 +97,7 @@ export default async function AdminServicesPage() {
                   <div className="flex justify-end pt-6 border-t border-white/5">
                     <button type="submit" className="flex items-center gap-3 bg-white/5 hover:bg-[#c9a84c] text-white hover:text-black px-8 py-3 transition-all">
                        <Save size={14} />
-                       <span className="text-[10px] tracking-widest uppercase font-bold">Save Changes</span>
+                       <span className="text-[12px] tracking-widest uppercase font-bold">Save Changes</span>
                     </button>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ export default async function AdminServicesPage() {
             {/* Delete form - moved outside update form to fix nesting bug */}
             <div className="flex justify-start mt-4 pt-4 border-t border-white/5">
               <form action={async () => { "use server"; await deleteService(service.id); }}>
-                <button className="flex items-center gap-2 text-[10px] text-red-500/40 hover:text-red-500 tracking-widest uppercase font-black transition-all">
+                <button className="flex items-center gap-2 text-[12px] text-red-500/40 hover:text-red-500 tracking-widest uppercase font-black transition-all">
                   <Trash2 size={12} />
                   Delete Service
                 </button>

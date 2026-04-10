@@ -49,11 +49,14 @@ export default function Navbar() {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
+      document.body.classList.add("modal-open");
       document.body.style.overflow = "hidden";
     } else {
+      document.body.classList.remove("modal-open");
       document.body.style.overflow = "unset";
     }
     return () => {
+      document.body.classList.remove("modal-open");
       document.body.style.overflow = "unset";
     };
   }, [mobileMenuOpen]);
@@ -85,7 +88,7 @@ export default function Navbar() {
             key={link.name}
             href={link.href}
             className={cn(
-              "text-[10px] font-bold tracking-[0.3em] uppercase transition-all relative group py-2",
+              "text-[12px] font-bold tracking-[0.3em] uppercase transition-all relative group py-2",
               pathname === link.href ? "text-[#c9a84c]" : "text-gray-400 hover:text-white"
             )}
           >
@@ -100,7 +103,7 @@ export default function Navbar() {
         ))}
         <Link
           href="/contact"
-          className="bg-[#c9a84c]/90 hover:bg-[#c9a84c] text-[#111111] font-bold py-2 px-6 rounded-full uppercase tracking-[0.2em] text-[10px] transition-all duration-300 transform hover:scale-105 shadow-xl"
+          className="bg-[#c9a84c]/90 hover:bg-[#c9a84c] text-[#111111] font-bold py-2 px-6 rounded-full uppercase tracking-[0.2em] text-[12px] transition-all duration-300 transform hover:scale-105 shadow-xl"
         >
           Book
         </Link>

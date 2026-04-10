@@ -21,7 +21,7 @@ export default async function DashboardOverview() {
         </div>
         <div>
           <h1 className="text-4xl font-heading font-bold text-white">Console Overview</h1>
-          <p className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-black mt-1">System Health & Metrics</p>
+          <p className="text-white/40 text-[12px] tracking-[0.4em] uppercase font-black mt-1">System Health & Metrics</p>
         </div>
       </div>
 
@@ -32,7 +32,7 @@ export default async function DashboardOverview() {
               <stat.icon size={120} />
             </div>
             <div className="relative z-10">
-              <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-black mb-4">{stat.name}</p>
+              <p className="text-[12px] tracking-[0.3em] text-white/40 uppercase font-black mb-4">{stat.name}</p>
               <h3 className={`text-5xl font-heading font-bold ${stat.color}`}>{stat.value}</h3>
             </div>
           </div>
@@ -57,8 +57,8 @@ export default async function DashboardOverview() {
         <div className="bg-[#c9a84c] p-10 space-y-6">
           <h3 className="text-lg font-heading font-bold text-[#111111] uppercase tracking-widest">Quick Actions</h3>
           <div className="flex flex-wrap gap-4">
-            <Link href="/admin/dashboard/gallery" className="bg-black text-white px-6 py-3 text-[10px] tracking-widest font-bold uppercase transition-transform hover:-translate-y-1">Upload Media</Link>
-            <Link href="/admin/dashboard/hero" className="bg-[#111111]/10 text-black border border-black/20 px-6 py-3 text-[10px] tracking-widest font-bold uppercase transition-transform hover:-translate-y-1">Edit Headline</Link>
+            <Link href="/admin/dashboard/gallery" className="bg-black text-white px-6 py-3 text-[12px] tracking-widest font-bold uppercase transition-transform hover:-translate-y-1">Upload Media</Link>
+            <Link href="/admin/dashboard/hero" className="bg-[#111111]/10 text-black border border-black/20 px-6 py-3 text-[12px] tracking-widest font-bold uppercase transition-transform hover:-translate-y-1">Edit Headline</Link>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default async function AdminHeroPage() {
         </div>
         <div>
           <h1 className="text-4xl font-heading font-bold text-white">Hero Management</h1>
-          <p className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-black mt-1">Landing Impact Settings</p>
+          <p className="text-white/40 text-[12px] tracking-[0.4em] uppercase font-black mt-1">Landing Impact Settings</p>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ export default async function AdminHeroPage() {
             <h2 className="text-lg font-heading font-bold text-[#c9a84c] tracking-widest uppercase">Messaging</h2>
             
             <div className="space-y-4">
-              <label className="block text-[10px] tracking-[0.2em] text-white/40 uppercase font-black">Main Headline</label>
+              <label className="block text-[12px] tracking-[0.2em] text-white/40 uppercase font-black">Main Headline</label>
               <input 
                 name="headline"
                 defaultValue={hero?.headline}
@@ -34,7 +34,7 @@ export default async function AdminHeroPage() {
             </div>
 
             <div className="space-y-4">
-              <label className="block text-[10px] tracking-[0.2em] text-white/40 uppercase font-black">Subheading / Badge</label>
+              <label className="block text-[12px] tracking-[0.2em] text-white/40 uppercase font-black">Subheading / Badge</label>
               <input 
                 name="subtext"
                 defaultValue={hero?.subtext}
@@ -58,7 +58,7 @@ export default async function AdminHeroPage() {
                   className="w-full h-full object-cover opacity-60"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-[10px] tracking-[0.3em] font-black text-white/20 uppercase">Current Media Active</p>
+                  <p className="text-[12px] tracking-[0.3em] font-black text-white/20 uppercase">Current Media Active</p>
                 </div>
               </div>
 
@@ -71,7 +71,7 @@ export default async function AdminHeroPage() {
                 />
                 <div className="w-full border-2 border-dashed border-white/10 p-8 text-center group-hover:border-[#c9a84c] transition-all flex flex-col items-center gap-3">
                   <Upload className="text-white/20" />
-                  <p className="text-[10px] tracking-[0.2em] text-white/40 uppercase font-black">Click or Drag to Replace 4K Video</p>
+                  <p className="text-[12px] tracking-[0.2em] text-white/40 uppercase font-black">Click or Drag to Replace 4K Video</p>
                 </div>
               </div>
             </div>

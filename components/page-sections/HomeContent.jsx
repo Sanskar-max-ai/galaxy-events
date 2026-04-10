@@ -43,6 +43,21 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
     return () => currentRef?.removeEventListener("scroll", handleScroll);
   }, [services.length]);
 
+  // Lock body scroll and hide sticky CTA when modal is open
+  useEffect(() => {
+    if (selectedService) {
+      document.body.classList.add("modal-open");
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedService]);
+
   // Helper to map icon string to Component
   const getIcon = (iconName) => {
     const IconComponent = Icons[iconName] || Icons.FaGem;
@@ -107,6 +122,22 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
               </div>
             ))}
           </div>
+          
+          {/* Mobile Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {services.map((_, idx) => (
+              <motion.div
+                key={idx}
+                initial={false}
+                animate={{
+                  width: idx === activeSlide ? 24 : 8,
+                  backgroundColor: idx === activeSlide ? "#c9a84c" : "rgba(255, 255, 255, 0.4)"
+                }}
+                className="h-2 rounded-full"
+                transition={{ duration: 0.3 }}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Desktop Grid */}
@@ -149,6 +180,7 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
                   key={item.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileTap={{ scale: 0.97 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   className={`${spanClass} relative group overflow-hidden bg-[#111111]`}
@@ -156,7 +188,7 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
                   <Image src={item.type === 'video' ? (item.poster || item.src) : item.src} alt={item.title} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                   <div className="absolute bottom-10 left-10 z-20">
-                    <p className="text-[#c9a84c] text-[10px] tracking-widest uppercase mb-2">{item.category}</p>
+                    <p className="text-[#c9a84c] text-[12px] tracking-widest uppercase mb-2">{item.category}</p>
                     <h4 className="text-3xl font-heading text-white">{item.title}</h4>
                   </div>
                 </motion.div>
@@ -176,7 +208,7 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
               <div className="w-full md:w-1/2 relative h-[300px] md:h-auto">
                 <Image src={selectedService.image_src} alt={selectedService.title} fill className="object-cover" />
               </div>
-              <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 p-4 sm:p-6 lg:p-16 flex flex-col justify-center">
                 <h3 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-tight">{selectedService.title}</h3>
                 <p className="text-white/70 text-lg leading-relaxed font-light mb-12">{selectedService.description}</p>
                 <Link href="/contact" onClick={() => setSelectedService(null)} className="inline-flex items-center justify-center bg-[#c9a84c] text-[#111111] font-bold py-5 px-10 rounded-sm uppercase tracking-widest text-sm">Book This Service</Link>

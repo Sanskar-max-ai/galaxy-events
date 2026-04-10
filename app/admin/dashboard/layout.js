@@ -20,7 +20,7 @@ export default function AdminDashboardLayout({ children }) {
       <aside className="w-64 bg-[#111111] border-r border-white/5 flex flex-col fixed h-full z-50">
         <div className="p-8 border-b border-white/5">
           <h2 className="text-xl font-heading font-bold tracking-tight text-[#c9a84c]">GALAXY <span className="text-white">OS</span></h2>
-          <p className="text-[8px] tracking-[0.4em] uppercase text-white/30 mt-1 font-black">Management Suite</p>
+          <p className="text-[12px] tracking-[0.4em] uppercase text-white/30 mt-1 font-black">Management Suite</p>
         </div>
         
         <nav className="flex-grow p-4 space-y-2 mt-8">

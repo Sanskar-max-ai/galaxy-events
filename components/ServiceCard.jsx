@@ -7,9 +7,9 @@ import { FaReact } from "react-icons/fa"; // fallback icon
 
 export default function ServiceCard({ title, description, image, icon: Icon = FaReact, delay = 0, href = "/services", onClick }) {
   return (
-    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileTap={{ scale: 0.97 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay }}
     >
@@ -29,7 +29,7 @@ export default function ServiceCard({ title, description, image, icon: Icon = Fa
                 src={image} 
                 alt={title}
                 fill
-                sizes="(max-width: 768px) 100vw, 400px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out opacity-70 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60" />
@@ -50,7 +50,7 @@ export default function ServiceCard({ title, description, image, icon: Icon = Fa
             {description}
           </p>
 
-          <div className="mt-auto flex items-center text-[10px] tracking-[0.3em] text-[#c9a84c] uppercase font-bold">
+          <div className="mt-auto flex items-center text-[12px] tracking-[0.3em] text-[#c9a84c] uppercase font-bold">
             <span className="mr-3">Discover Details</span>
             <span className="w-10 h-[1px] bg-[#c9a84c] group-hover:w-16 transition-all duration-500" />
           </div>

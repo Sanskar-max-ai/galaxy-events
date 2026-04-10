@@ -124,3 +124,9 @@ button:active, a:active {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Hide Sticky CTA when modal is open */
+body.modal-open .sticky-mobile-cta {
+  display: none !important;
+}
+

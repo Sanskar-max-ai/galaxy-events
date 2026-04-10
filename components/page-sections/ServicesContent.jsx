@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,6 +26,21 @@ const allServices = [
 
 export default function ServicesContent() {
   const [selectedService, setSelectedService] = useState(null);
+  
+  // Lock body scroll and hide sticky CTA when modal is open
+  useEffect(() => {
+    if (selectedService) {
+      document.body.classList.add("modal-open");
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedService]);
 
   return (
     <main className="pt-20 bg-[#0a0a0a] min-h-screen">
@@ -108,7 +123,7 @@ export default function ServicesContent() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent md:bg-gradient-to-r" />
               </div>
 
-              <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 p-4 sm:p-6 lg:p-16 flex flex-col justify-center">
                 <selectedService.icon className="text-[#c9a84c] text-5xl mb-8" />
                 <h3 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-tight">
                   {selectedService.title}

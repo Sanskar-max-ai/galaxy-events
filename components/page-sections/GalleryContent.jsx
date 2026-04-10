@@ -45,6 +45,7 @@ export default function GalleryContent({ initialImages }) {
             src="/photos/wedding-stage.jpg"
             alt="Gallery Heritage"
             fill
+            sizes="100vw"
             className="object-cover scale-110 grayscale brightness-50"
             priority
           />
@@ -75,7 +76,7 @@ export default function GalleryContent({ initialImages }) {
                 key={cat}
                 onClick={() => setActiveTab(cat)}
                 className={cn(
-                  "px-6 py-2 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold transition-all duration-500 rounded-full border",
+                  "px-6 py-2 text-[12px] md:text-xs uppercase tracking-[0.3em] font-bold transition-all duration-500 rounded-full border",
                   activeTab === cat 
                     ? "border-[#c9a84c] bg-[#c9a84c] text-[#111111] shadow-[0_0_20px_rgba(201,168,76,0.2)]" 
                     : "border-white/10 text-gray-500 hover:border-white/30 hover:text-white"
@@ -106,6 +107,7 @@ export default function GalleryContent({ initialImages }) {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
+                  whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.7, delay: idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   key={`${image.src}-${idx}-${activeTab}`}
                   className="mb-6 relative group cursor-pointer overflow-hidden rounded-sm bg-[#111111]"
@@ -116,7 +118,7 @@ export default function GalleryContent({ initialImages }) {
                     <motion.div 
                       className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
                     >
-                      <p className="text-[#c9a84c] text-[10px] tracking-widest uppercase mb-1">{image.category}</p>
+                      <p className="text-[#c9a84c] text-[12px] tracking-widest uppercase mb-1">{image.category}</p>
                       <h4 className="text-xl md:text-2xl font-heading text-white font-medium">{image.title}</h4>
                       <div className="w-8 h-[1px] bg-[#c9a84c] mt-4 group-hover:w-full transition-all duration-700" />
                     </motion.div>
@@ -141,11 +143,12 @@ export default function GalleryContent({ initialImages }) {
                     alt={image.title}
                     width={800}
                     height={1000}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-110 filter grayscale-[0.3] group-hover:grayscale-0" 
                   />
                   
                   {/* Subtle Numbering */}
-                  <div className="absolute bottom-4 left-4 z-20 text-[8px] tracking-[0.5em] text-white/20 uppercase font-black group-hover:text-white/60 transition-colors">
+                  <div className="absolute bottom-4 left-4 z-20 text-[12px] tracking-[0.5em] text-white/20 uppercase font-black group-hover:text-white/60 transition-colors">
                      0{idx + 1} / Collection
                   </div>
                 </motion.div>

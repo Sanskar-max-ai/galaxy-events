@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaCheckCircle } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaCheckCircle, FaChevronDown } from "react-icons/fa";
 
 export default function ContactContent() {
   const [formData, setFormData] = useState({
@@ -233,23 +233,28 @@ export default function ContactContent() {
                 {/* Event Type */}
                 <div className="space-y-2">
                   <label htmlFor="eventType" className="text-sm text-gray-400 uppercase tracking-wider">Event Type</label>
-                  <select 
-                    id="eventType"
-                    name="eventType"
-                    required
-                    value={formData.eventType}
-                    onChange={handleChange}
-                    className="w-full bg-[#111111] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#c9a84c] transition-colors rounded-sm appearance-none"
-                  >
-                    <option value="" disabled>Select an event type</option>
-                    <option value="Wedding">Premium Wedding</option>
-                    <option value="Ring Ceremony">Ring Ceremony</option>
-                    <option value="Naamkaran">Welcome / Naamkaran</option>
-                    <option value="Birthday">Birthday Celebration</option>
-                    <option value="SFX">Stage SFX & Pyrotechnics</option>
-                    <option value="Decor">Decor & Tent Setup</option>
-                    <option value="Other">Other / Custom</option>
-                  </select>
+                  <div className="relative">
+                    <select 
+                      id="eventType"
+                      name="eventType"
+                      required
+                      value={formData.eventType}
+                      onChange={handleChange}
+                      className="w-full bg-[#111111] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#c9a84c] transition-colors rounded-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled>Select an event type</option>
+                      <option value="Wedding">Premium Wedding</option>
+                      <option value="Ring Ceremony">Ring Ceremony</option>
+                      <option value="Naamkaran">Welcome / Naamkaran</option>
+                      <option value="Birthday">Birthday Celebration</option>
+                      <option value="SFX">Stage SFX & Pyrotechnics</option>
+                      <option value="Decor">Decor & Tent Setup</option>
+                      <option value="Other">Other / Custom</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#c9a84c]">
+                      <FaChevronDown size={14} />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Message */}

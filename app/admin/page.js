@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
         </form>
         
         <div className="mt-12">
-          <p className="text-[10px] text-white/20 tracking-[0.2em] font-light">SYSTEM SECURE • GALAXY EVENTS OS v1.0</p>
+          <p className="text-[12px] text-white/20 tracking-[0.2em] font-light">SYSTEM SECURE • GALAXY EVENTS OS v1.0</p>
         </div>
       </motion.div>
     </main>
