@@ -10,17 +10,15 @@ export default function HeroSection({ videoUrl, headline, subtext }) {
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full bg-[#111111]">
         <video
-          key={videoUrl} // Force re-render on video change
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
+          src={videoUrl || "/videos/hero-main.mp4"}
           poster="/photos/wedding-stage.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-50 block"
-        >
-          <source src={videoUrl || "/videos/hero-main.mp4"} type="video/mp4" />
-        </video>
+        />
         {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
