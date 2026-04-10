@@ -7,6 +7,7 @@ import { FaReact } from "react-icons/fa"; // fallback icon
 
 export default function ServiceCard({ title, description, image, icon: Icon = FaReact, delay = 0, href = "/services", onClick }) {
   return (
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileTap={{ scale: 0.97 }}

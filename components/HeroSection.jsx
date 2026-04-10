@@ -15,6 +15,7 @@ export default function HeroSection({ videoUrl, headline, subtext }) {
           muted
           loop
           playsInline
+          preload="auto"
           poster="/photos/wedding-stage.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-50 block"
         >

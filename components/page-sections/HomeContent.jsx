@@ -110,7 +110,7 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
         <div className="md:hidden relative px-4">
           <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-0">
             {services.map((service, idx) => (
-              <div key={idx} className="w-full shrink-0 snap-center px-2">
+              <div key={idx} className="w-full shrink-0 snap-center snap-always px-2">
                 <ServiceCard 
                   title={service.title} 
                   description={service.description} 
@@ -183,7 +183,7 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
                   whileTap={{ scale: 0.97 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className={`${spanClass} relative group overflow-hidden bg-[#111111]`}
+                  className={`${spanClass} relative group overflow-hidden bg-[#111111] h-[450px] md:h-full`}
                 >
                   <Image src={item.type === 'video' ? (item.poster || item.src) : item.src} alt={item.title} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
