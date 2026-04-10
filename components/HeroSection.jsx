@@ -7,18 +7,22 @@ import { FaArrowRight } from "react-icons/fa";
 export default function HeroSection({ videoUrl, headline, subtext }) {
   return (
     <section className="relative min-h-[85vh] md:min-h-screen md:h-[100svh] w-full flex items-center justify-center overflow-hidden pt-[56px] md:pt-0">
-      {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full bg-[#111111]">
+      {/* Background Video Container with Instant CSS Fallback */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-[#111111] bg-cover bg-center transition-opacity duration-1000"
+        style={{ backgroundImage: 'url(/photos/wedding-stage.jpg)' }}
+      >
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          src={videoUrl || "/videos/hero-main.mp4"}
           poster="/photos/wedding-stage.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-50 block"
-        />
+        >
+          <source src={videoUrl || "/videos/hero-main.mp4"} type="video/mp4" />
+        </video>
         {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />

@@ -26,6 +26,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preload" href="/videos/hero-main.mp4" as="video" type="video/mp4" />
+      </head>
       <body className="min-h-full flex flex-col pt-0 selection:bg-[#c9a84c] selection:text-[#111111] bg-[#0a0a0a]">
         <Navbar />
         <main className="flex-1 relative pb-[68px] md:pb-0">{children}</main>
