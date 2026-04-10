@@ -186,10 +186,17 @@ export default function HomeContent({ initialHero, initialServices, initialGalle
                   className={`${spanClass} relative group overflow-hidden bg-[#111111] h-[450px] md:h-full`}
                 >
                   <Image src={item.type === 'video' ? (item.poster || item.src) : item.src} alt={item.title} fill className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                  <div className="absolute bottom-10 left-10 z-20">
-                    <p className="text-[#c9a84c] text-[12px] tracking-widest uppercase mb-2">{item.category}</p>
-                    <h4 className="text-3xl font-heading text-white">{item.title}</h4>
+                  {/* Premium Reveal Overlay */}
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+                  
+                  <div className="absolute bottom-8 left-8 z-20 max-w-[85%]">
+                    <p className="text-[#c9a84c] text-[12px] tracking-[0.4em] uppercase mb-3 font-bold drop-shadow-md">
+                      {item.category}
+                    </p>
+                    <h4 className="text-3xl md:text-5xl font-heading text-white leading-tight drop-shadow-lg">
+                      {item.title}
+                    </h4>
+                    <div className="w-12 h-[1px] bg-[#c9a84c] mt-4 group-hover:w-24 transition-all duration-700" />
                   </div>
                 </motion.div>
               );
