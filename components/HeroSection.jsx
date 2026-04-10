@@ -19,7 +19,7 @@ export default function HeroSection({ videoUrl, headline, subtext }) {
           playsInline
           preload="auto"
           poster="/photos/wedding-stage.jpg"
-          className="absolute inset-0 w-full h-full object-cover opacity-50 block"
+          className="absolute inset-0 w-full h-full object-cover opacity-100 block"
         >
           <source src={videoUrl || "/videos/hero-main.mp4"} type="video/mp4" />
         </video>
